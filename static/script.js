@@ -11,6 +11,8 @@ function fade_right() {
     if (num >= 18) {
         image.src = `/static/Node.js (19).jpg`
         right.style.opacity = 0.5
+        active = 8
+        change_active()
         return
     }
     num += 1
@@ -21,6 +23,10 @@ function fade_right() {
     }
     left.style.opacity = 1
     image.src = `/static/Node.js (${num}).${format}`
+    if (num == 0 || num == 3 || num == 4 || num == 6 || num == 10 || num == 13 || num == 16 || num == 18) {
+      active += 1
+    }
+    change_active()
     change()
 }
 
@@ -30,6 +36,8 @@ function fade_left() {
     if (num <= 1) {
         image.src = `/static/Node.js (0).jpg`
         left.style.opacity = 0.5
+        active = 0
+        change_active()
         return
     }
     num -= 1
@@ -40,6 +48,10 @@ function fade_left() {
     }
     right.style.opacity = 1
     image.src = `/static/Node.js (${num}).${format}`
+    if (num == 3 || num == 4 || num == 6 || num == 10 || num == 13 || num == 16 || num == 18 || num == 19) {
+      active -= 1
+    }
+    change_active()
     change()
 }
 
