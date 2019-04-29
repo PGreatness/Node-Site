@@ -9,7 +9,7 @@ function fade_right() {
     console.log('clicked')
     var num = Number(image.src.substr(image.src.indexOf('(') + 1, image.src.indexOf(')') - image.src.indexOf('(') - 1))
     var format = 'jpg'
-    if (num >= 19) {
+    if (num >= 18) {
         image.src = `/static/Node.js (19).jpg`
         right.style.opacity = 0.5
         return
@@ -28,7 +28,7 @@ function fade_right() {
 function fade_left() {
     var num = Number(image.src.substr(image.src.indexOf('(') + 1, image.src.indexOf(')') - image.src.indexOf('(') - 1))
     var format = 'jpg'
-    if (num <= 0) {
+    if (num <= 1) {
         image.src = `/static/Node.js (0).jpg`
         left.style.opacity = 0.5
         return
@@ -94,7 +94,7 @@ function jump_to(jump) {
  */
 function wheel_change(e) {
     e.preventDefault()
-    if (e.deltaY > 0) {
+    if (e.deltaY < 0) {
         fade_left()
     }else{
         fade_right()
